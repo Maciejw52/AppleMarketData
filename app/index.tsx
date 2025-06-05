@@ -1,22 +1,31 @@
 import Checkbox from "@/components/checkbox/checkbox";
-import { StyleSheet, Text, View } from "react-native";
+import StockChart from "@/components/stock-chart/stock-chart";
+import StockHeader from "@/components/stock-header/stock-header";
+import { SafeAreaView, StyleSheet, View } from "react-native";
 
-export default function HomeScreen() {
+export default function StockScreen() {
+  const stockTicker = "AAPL";
+
   return (
-    <View style={styles.container}>
-      <Text>AAPL Market Data</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={{ paddingBottom: 25 }}>
+        <StockHeader ticker={stockTicker} />
+      </View>
+
+      <StockChart />
       <Checkbox />
       <Checkbox />
       <Checkbox />
       <Checkbox />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    backgroundColor: "yellow",
     alignItems: "center",
+    paddingTop: 10,
   },
 });
